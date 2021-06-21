@@ -1,7 +1,9 @@
+// import pages
+import AboutUs from "./pages/AboutUs";
 function App() {
     return (
         <div className="App">
-            <h2>Film</h2>
+            <AboutUs />
         </div>
     );
 }
