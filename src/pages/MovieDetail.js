@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { MovieState } from "../movieState";
+//Animations
+import { pageAnimation } from "../animation";
+import { motion } from "framer-motion";
 
 const MovieDetail = ({ movies, movie, setMovie }) => {
     //Variables
@@ -18,7 +21,12 @@ const MovieDetail = ({ movies, movie, setMovie }) => {
         <>
             {/* Check to make sure movie is available */}
             {movie && (
-                <Details>
+                <Details
+                    variants={pageAnimation}
+                    initial="hidden"
+                    animate="show"
+                    exit="exit"
+                >
                     <Headline>
                         <h2>{movie.title}</h2>
                         <img src={movie.mainImg} alt={`${movie.title}`} />
@@ -41,7 +49,7 @@ const MovieDetail = ({ movies, movie, setMovie }) => {
     );
 };
 
-const Details = styled.div`
+const Details = styled(motion.div)`
     color: white;
 `;
 
