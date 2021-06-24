@@ -17,6 +17,7 @@ import { AnimatePresence } from "framer-motion";
 
 // Components
 import Nav from "./components/Nav";
+
 function App() {
     //Variables
     const location = useLocation();

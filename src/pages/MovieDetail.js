@@ -68,6 +68,9 @@ const Headline = styled.div`
         height: 70vh;
         object-fit: cover;
     }
+    @media (max-width: 1300px) {
+        text-align: center;
+    }
 `;
 
 const Awards = styled.div`
@@ -76,6 +79,10 @@ const Awards = styled.div`
     margin: 5rem 10rem;
     align-items: center;
     justify-content: space-around;
+    @media (max-width: 1300px) {
+        display: block;
+        margin: 2rem;
+    }
 `;
 
 const AwardStyle = styled.div`
