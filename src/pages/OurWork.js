@@ -29,7 +29,7 @@ const OurWork = ({ movies }) => {
                 <Frame4 variants={slider}></Frame4>
             </motion.div>
             {movies.map((movie) => (
-                <Movie>
+                <Movie key={movie.title}>
                     <motion.h2 variants={fade}>{movie.title}</motion.h2>
                     <motion.div
                         variants={lineAnim}

@@ -2,16 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { About } from "../styles";
 import Toggle from "./Toggle";
+import { AnimateSharedLayout } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { scrollReveal } from "../animation";
 
 const FaqSection = () => {
+    const [element, controls] = useScroll();
     return (
-        <Faq>
+        <Faq
+            ref={element}
+            animate={controls}
+            initial="hidden"
+            variants={scrollReveal}
+        >
             <h2>
                 Any Questions <span>FAQ</span>
             </h2>
-            <Toggle>
-                <div className="question">
-                    <h4>How Do I Start?</h4>
+            <AnimateSharedLayout>
+                <Toggle title="How Do I Start?">
                     <div className="answer">
                         <p>Lorem ipsum dolor sit amet.</p>
                         <p>
@@ -19,12 +27,8 @@ const FaqSection = () => {
                             elit. Iure, nihil.
                         </p>
                     </div>
-                    <div className="faq-line"></div>
-                </div>
-            </Toggle>
-            <Toggle>
-                <div className="question">
-                    <h4>Daily Schedule</h4>
+                </Toggle>
+                <Toggle title="Daily Schedule">
                     <div className="answer">
                         <p>Lorem ipsum dolor sit amet.</p>
                         <p>
@@ -32,12 +36,8 @@ const FaqSection = () => {
                             elit. Iure, nihil.
                         </p>
                     </div>
-                    <div className="faq-line"></div>
-                </div>
-            </Toggle>
-            <Toggle>
-                <div className="question">
-                    <h4>Payment Methods</h4>
+                </Toggle>
+                <Toggle title="Payment Methods">
                     <div className="answer">
                         <p>Lorem ipsum dolor sit amet.</p>
                         <p>
@@ -45,12 +45,8 @@ const FaqSection = () => {
                             elit. Iure, nihil.
                         </p>
                     </div>
-                    <div className="faq-line"></div>
-                </div>
-            </Toggle>
-            <Toggle>
-                <div className="question">
-                    <h4>What products do you offer?</h4>
+                </Toggle>
+                <Toggle title="What products do you offer?">
                     <div className="answer">
                         <p>Lorem ipsum dolor sit amet.</p>
                         <p>
@@ -58,9 +54,8 @@ const FaqSection = () => {
                             elit. Iure, nihil.
                         </p>
                     </div>
-                    <div className="faq-line"></div>
-                </div>
-            </Toggle>
+                </Toggle>
+            </AnimateSharedLayout>
         </Faq>
     );
 };
